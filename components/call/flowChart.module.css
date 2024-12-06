@@ -1,0 +1,26 @@
+.noteCard {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  border-right-width: 4px;
+  border-bottom-width: 4px;
+  border-color: red;
+  border-color: black;
+  border-radius: 15px;
+}
+
+
+.connectionLine {
+  display: inline-block;
+  height: 100px;
+  margin-bottom: -6px;
+  padding-bottom: 0px;
+  width: 5px;
+  background-color: black;
+
+}
+
+.flowChartButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

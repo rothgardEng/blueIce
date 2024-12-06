@@ -1,0 +1,19 @@
+.active {
+  background:  #ffd7d7;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav:hover,
+.nav:active {
+  background:  #ffd7d7;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+/* #008037 */
+/* #5e8445 */
+/* #fdfdf5 */

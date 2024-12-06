@@ -1,0 +1,109 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// have one overloard account be overlord to have access to to creat other users
+// manually make this account, will need to figure out how to do that in production if that
+// is the route you want to go with so isOvrlord would be true int that case and then
+// that account would have conditional rendering to access to create new account form
+model Admin {
+  id Int @id @default(autoincrement())
+  firstName      String   @db.VarChar(30)
+  lastName       String  @db.VarChar(30)
+  hashedPassword String
+  email          String   @unique @db.VarChar(70)
+  isOverlord Boolean @default(false)
+}
+
+
+// conditinal rending on navbar if signed in to admin only pages
+model JoinUs {
+  id Int @id @default(autoincrement())
+  name  String   @db.VarChar(40)
+  email  String   @unique @db.VarChar(70)
+  memberships String
+  phoneNumber String @db.VarChar(14)
+  interested String @db.VarChar(50)
+  referral String @db.VarChar(20)
+  contacted Boolean @default(false)
+  assignedTo String?
+  // one admin can contact multiple users
+  contactedBy String?
+  hasParticipatedInAction Boolean @default(false)
+  notes String? @db.VarChar(1000)
+}
+
+model News {
+  id Int @id @default(autoincrement())
+  title String @db.VarChar(50)
+  titleSpanish String? @db.VarChar(50)
+  titleSpanishHowTranslated String @db.VarChar(18) @default("Google Translated")
+  body String @db.VarChar(1000)
+  bodySpanish String? @db.VarChar(1000)
+  bodySpanishHowTranslated String @db.VarChar(18) @default("Google Translated")
+  imageLink String
+  imageAlt String @db.VarChar(300)
+  imageAltSpanish String @db.VarChar(300)
+  imageAltSpanishHowTranslated String @db.VarChar(18) @default("Google Translated")
+  link String
+  anon Boolean
+  typeA String @db.VarChar(30)
+  fileName String?
+  // one admin can create multiple recs
+  createdBy String?
+    createdAt    DateTime @default(now())
+    updatedAt DateTime?
+
+}
+
+model Recommendation {
+  id Int @id @default(autoincrement())
+  title String @db.VarChar(50)
+  titleSpanish String? @db.VarChar(50)
+  titleSpanishHowTranslated String @db.VarChar(18) @default("Google Translated")
+  bodySpanish String? @db.VarChar(1000)
+  bodySpanishHowTranslated String @db.VarChar(18) @default("Google Translated")
+  body String @db.VarChar(1000)
+  author String  @db.VarChar(40)
+  genre String @db.VarChar(50)
+  typeA String @db.VarChar(50)
+  imageLink String
+  imageAlt String @db.VarChar(300)
+  imageAltSpanish String @db.VarChar(300)
+  imageAltSpanishHowTranslated String @db.VarChar(18) @default("Google Translated")
+  link String
+  anon Boolean
+  fileName String?
+  // one admin can create multiple recs
+  createdBy String?
+    createdAt    DateTime @default(now())
+    updatedAt DateTime?
+}
+
+
+model Orginization {
+  id Int @id @default(autoincrement())
+  orgName String @db.VarChar(50)
+  imageLink String
+  imageAlt String @db.VarChar(300)
+  imageAltSpanish String @db.VarChar(300)
+  imageAltSpanishHowTranslated String @db.VarChar(18) @default("Google Translated")
+  english String @db.VarChar(500)
+  spanish String? @db.VarChar(500)
+  descriptionSpanishHowTranslated String @db.VarChar(18) @default("Google Translated")
+  twitter String?
+  instagram String?
+  facebook String?
+  website String?
+}

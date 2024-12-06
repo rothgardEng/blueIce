@@ -1,0 +1,8 @@
+.icon {
+  fill: rgb(77, 77, 77);
+}
+
+
+:hover.icon {
+  fill: #ff9999;
+}

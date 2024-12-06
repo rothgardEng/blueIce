@@ -1,0 +1,16 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+.banner_people {
+  background-image: url(https://defund-nova-police.s3.amazonaws.com/communityArt.png);
+  background-repeat: repeat-x;
+
+  margin: 0%;
+  height: 94px;
+}

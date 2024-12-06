@@ -1,0 +1,8 @@
+.dotDiv {
+  background-color: white;
+  z-index: 200;
+}
+
+#dotDiv {
+  background-color: white;
+}

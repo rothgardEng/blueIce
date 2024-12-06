@@ -1,0 +1,14 @@
+.more {
+  background: #ff9999;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.more:hover {
+  background: #ffd7d7;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
